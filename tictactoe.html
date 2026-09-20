@@ -115,7 +115,7 @@
 
 <main>
   <h1>Tic-Tac-Toe</h1>
-  <div class="status" id="status">Player X's turn</div>
+  <div class="status" id="status">Papu's turn</div>
 
   <div class="board" id="board"></div>
 
@@ -171,7 +171,8 @@
 
     const winner = checkWinner();
     if (winner) {
-      statusEl.textContent = `Player ${winner} wins!`;
+      const winnerName = winner === 'X' ? 'Papu' : 'Lapu';
+      statusEl.textContent = `${winnerName} wins!`;
       gameOver = true;
       return;
     }
@@ -183,14 +184,15 @@
     }
 
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    statusEl.textContent = `Player ${currentPlayer}'s turn`;
+    const nextName = currentPlayer === 'X' ? 'Papu' : 'Lapu';
+    statusEl.textContent = `${nextName}'s turn`;
   }
 
   function resetGame() {
     board = Array(9).fill(null);
     currentPlayer = 'X';
     gameOver = false;
-    statusEl.textContent = "Player X's turn";
+    statusEl.textContent = "Papu's turn";
     renderBoard();
   }
 
